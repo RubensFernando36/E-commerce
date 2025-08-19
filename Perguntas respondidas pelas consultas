@@ -1,0 +1,11 @@
+Quantos pedidos cada cliente fez?
+SELECT id_cliente, COUNT(*) FROM Pedido GROUP BY id_cliente;
+
+Algum vendedor também é fornecedor?
+(Necessário cruzar CPF do vendedor e CNPJ do fornecedor conforme regra de negócio.)
+
+Relação de produtos, fornecedores e estoque
+SELECT f.nome AS fornecedor, p.nome AS produto, e.quantidade
+FROM Produto p
+JOIN Fornecedor f ON p.id_fornecedor = f.id_fornecedor
+JOIN Estoque e ON p.id_produto = e.id_produto;
