@@ -1,0 +1,20 @@
+SELECT nome, email FROM Cliente;
+
+SELECT nome, preco FROM Produto WHERE preco > 100;
+
+SELECT id_pedido, valor_total, 
+       valor_total * 0.9 AS valor_com_desconto
+FROM Pedido;
+
+SELECT nome, preco FROM Produto ORDER BY preco DESC;
+
+SELECT id_cliente, COUNT(*) AS qtd_pedidos
+FROM Pedido
+GROUP BY id_cliente
+HAVING COUNT(*) > 1;
+
+SELECT c.nome AS cliente, p.id_pedido, pr.nome AS produto, pp.quantidade
+FROM Cliente c
+JOIN Pedido p ON c.id_cliente = p.id_cliente
+JOIN Pedido_Produto pp ON p.id_pedido = pp.id_pedido
+JOIN Produto pr ON pp.id_produto = pr.id_produto;
