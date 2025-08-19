@@ -1,0 +1,31 @@
+-- Clientes
+INSERT INTO Cliente (tipo, nome, cpf, email, telefone) 
+VALUES ('PF','João Silva','12345678901','joao@email.com','119999999');
+
+INSERT INTO Cliente (tipo, nome, cnpj, email, telefone) 
+VALUES ('PJ','Empresa XPTO','12345678000199','contato@xpto.com','1133334444');
+
+-- Fornecedores
+INSERT INTO Fornecedor (nome, cnpj) VALUES ('Fornecedor A','11111111000199');
+INSERT INTO Fornecedor (nome, cnpj) VALUES ('Fornecedor B','22222222000199');
+
+-- Produtos
+INSERT INTO Produto (nome, preco, id_fornecedor) VALUES ('Notebook',3500.00,1);
+INSERT INTO Produto (nome, preco, id_fornecedor) VALUES ('Mouse',50.00,2);
+
+-- Estoque
+INSERT INTO Estoque (id_produto, quantidade) VALUES (1,10),(2,100);
+
+-- Pedido
+INSERT INTO Pedido (id_cliente, data_pedido, valor_total) VALUES (1,'2025-08-19',3550.00);
+
+-- Itens do Pedido
+INSERT INTO Pedido_Produto (id_pedido, id_produto, quantidade, preco_unit) VALUES (1,1,1,3500.00);
+INSERT INTO Pedido_Produto (id_pedido, id_produto, quantidade, preco_unit) VALUES (1,2,1,50.00);
+
+-- Pagamentos
+INSERT INTO Pagamento (id_pedido, forma_pagamento, valor) VALUES (1,'Pix',2000.00);
+INSERT INTO Pagamento (id_pedido, forma_pagamento, valor) VALUES (1,'Cartão',1550.00);
+
+-- Entrega
+INSERT INTO Entrega (id_pedido, status, codigo_rastreio) VALUES (1,'Enviado','BR1234567890');
